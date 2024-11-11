@@ -1,81 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<style>
+  .card {
+    width: 18rem;
+  }
+
+  .github-icon {
+    height: 40px;
+  }
+
+  a.nounderline {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+</style>
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="dist/css/lightbox.min.css" rel="stylesheet">
 </head>
+
 <body>
+  <nav class="navbar navbar-expand-md bg-body-tertiary" data-bs-theme="dark" id="home">
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-        </nav>
+      <a class="navbar-brand" href="index.html">
+        <i data-feather="circle" class="mb-1"></i>
+        Navbar
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
 
-        <header>
-            <h1 class="text-center">
-                Header
-            </h1>    
-        </header>
+        <button class="btn btn-outline-warning" type="button" aria-label="Dark Mode Toggle" onclick="toggleDarkMode()">
+          <i data-feather="moon" class="dark-mode-toggle"></i>
+        </button>
 
-        <div class="row">
-            <div class="col-3 bg-success">
-                <p class="text-center">
-                    Hello There
-                </p>
-            </div>
-            <div class="col-6 bg-primary">
-                <p class="text-center">
-                    Hello There
-                </p>
-            </div>
-            <div class="col-3 bg-danger">
-                <p class="text-center">
-                    Hello There
-                </p>
-            </div>
+        <script>
+          // Check saved theme preference on page load
+          document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+              document.documentElement.setAttribute("data-bs-theme", savedTheme);
+            }
+          });
+
+          function toggleDarkMode() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute("data-bs-theme");
+
+            // Toggle between dark and light mode
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            html.setAttribute("data-bs-theme", newTheme);
+
+            // Save the new theme preference to localStorage
+            localStorage.setItem("theme", newTheme);
+          }
+        </script>
+
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1 class="text-center">
+      Header
+    </h1>
+  </header>
+
+  <div class="row px-md-5 align-items-start">
+    <div class="col-8">
+      <p class="text-start">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed tempus tellus. Morbi arcu dui, interdum in mattis suscipit, porta vel lorem. Fusce auctor urna et nisi tincidunt, et iaculis mi aliquet. Integer elementum leo nisl, at laoreet elit bibendum quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris non tellus a lacus sodales fermentum. Nam vehicula, libero ut suscipit gravida, diam lectus molestie lorem, eget tincidunt mi arcu et metus. Ut turpis nulla, consequat a malesuada id, bibendum sed magna. Nam diam erat, luctus sed velit ac, tincidunt volutpat eros. Donec fermentum ultricies urna a euismod. Morbi hendrerit mattis ante ac tincidunt.<br><br>
+
+        Mauris sed varius enim. Aliquam non est nibh. Mauris semper, ante nec tincidunt aliquam, neque risus venenatis felis, a gravida metus urna at nisi. Vivamus eu mattis magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque posuere venenatis tincidunt. Vestibulum quis tellus ut nisl scelerisque pretium. Sed ac odio iaculis, ultrices mi id, molestie lectus.<br><br>
+
+        Mauris id mi in tortor euismod lacinia. Pellentesque diam lectus, laoreet quis mollis sit amet, tristique ac lacus. Curabitur a consequat neque. Cras gravida pellentesque elit. Donec mattis lacus in nunc rutrum fermentum. Praesent et lacus malesuada, feugiat massa eget, tempor lectus. Sed maximus, est sed feugiat ultrices, libero tellus tempus nunc, ac vehicula mauris arcu eu arcu. Sed laoreet cursus lorem a pulvinar. Cras vestibulum dolor non enim sollicitudin, in iaculis felis elementum. Vivamus porta purus nisi, sit amet rutrum purus efficitur eget. Vestibulum non molestie ex. Proin in nisl accumsan ligula lobortis luctus vel ultrices nisi. Quisque interdum at dolor at bibendum. Proin rutrum nulla hendrerit, mollis velit at, facilisis ligula. Phasellus eget iaculis eros.<br><br>
+
+        Fusce aliquam nunc vitae enim pharetra dignissim. Cras ex lorem, elementum a massa vel, hendrerit fringilla dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut mi enim. Sed id dictum erat, eget finibus nunc. Duis in risus pulvinar, egestas neque finibus, congue arcu. Phasellus est ipsum, tempor nec molestie ut, interdum eget lacus. Morbi rutrum sit amet purus at tristique. Suspendisse pretium sed leo ultrices vestibulum. Vivamus commodo velit ipsum, non facilisis sem pharetra nec.<br><br>
+
+        In vehicula tellus turpis, ut sodales purus eleifend vitae. Cras eget elementum eros, sed tempus augue. In nec dignissim dui, in placerat ex. In vel fringilla ligula, et iaculis neque. Suspendisse sem justo, eleifend sit amet tortor vitae, dapibus malesuada purus. Praesent a risus neque. Aenean ac varius sem, et bibendum tellus. Suspendisse sed gravida ipsum. Nam eget ultrices ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus non ante at lacus dapibus aliquam sed a diam. Pellentesque pharetra nulla posuere, posuere erat at, aliquet urna.
+      </p>
+
+      <form class="row g-3 mb-4 needs-validation d-flex flex-column justify-content-center align-items-center" novalidate>
+
+        <div class="section-title text-center">
+          <h2>Contato</h2>
+          <p>Caso queria mandar uma mensagem para mim, preencha esse formulário.</p>
         </div>
 
-        <footer>
-            <p class="text-center">
-                So small....
-            </p>
-        </footer>
+        <div class="col-lg-5 col-md-8">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
+            <div class="valid-feedback">
+              Parece ótimo!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, escolha um nome.
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+            <div class="valid-feedback">
+              Parece ótimo!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, escolha um email.
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Telefone" required
+              data-mask="(00) 00000-0000">
+            <div class="valid-feedback">
+              Parece ótimo!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, digite seu telefone completo.
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" placeholder="Assunto" required>
+            <div class="valid-feedback">
+              Parece ótimo!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, escolha um assunto.
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
+            <div class="valid-feedback">
+              Parece ótimo!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, escolha uma mensagem.
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div class="col-md-1"></div>
+
+    <div class="col-3">
+      <h1 class="text-center">
+        Projetos
+      </h1>
+
+      <div class="d-flex flex-column justify-content-center align-items-center">
+
+        <div class="card mb-2">
+          <a href="dist/imagens/sistema-de-gestao.png" data-lightbox="gestao-website">
+              <img src="dist/imagens/sistema-de-gestao.png" class="card-img-top" alt="Aplicativo de Clima">
+          </a>
+          <a href="https://github.com/marshfellow42/sistema-de-gestao" class="nounderline">
+              <div class="card-body">
+                  <h5 class="card-title">Sistema de Gestão</h5>
+                  <p class="card-text">Um aplicativo de clima feito usando Java Swing. Utilizando a API do OpenWeatherMap, entre outras APIs que permitem uma experiência fluida.</p>
+              </div>
+          </a>
+        </div>
+
+        <div class="card mb-2">
+          <a href="dist/imagens/aplicativo-de-clima.png" data-lightbox="clima-app">
+            <img src="dist/imagens/aplicativo-de-clima.png" class="card-img-top" alt="Aplicativo de Clima">
+          </a>
+          <a href="https://github.com/marshfellow42/Projeto_POO_Swing" class="nounderline">
+            <div class="card-body">
+              <h5 class="card-title">Aplicativo de clima</h5>
+              <p class="card-text">Um aplicativo de clima feito usando Java Swing. Utilizando a API do OpenWeatherMap, entre outras APIs que permitem uma experiência fluida.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="card mb-2">
+          <a href="dist/imagens/sh1-calc.png" data-lightbox="calc-app">
+            <img src="dist/imagens/sh1-calc.png" class="card-img-top" alt="Calculadora para o rank final do jogo Silent Hill 1">
+          </a>
+          <a href="https://github.com/marshfellow42/SH1-Final-Score-Calculator" class="nounderline">
+            <div class="card-body">
+              <h5 class="card-title">Calculadora para o rank final do jogo Silent Hill 1</h5>
+              <p class="card-text">Uma calculadora feita usando Java Swing que serve para calcular o rank final do jogo para saber se você conseguiu o rank necessário para 10 estrelas onde você consegue uma arma poderosa.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="card mb-2">
+          <a href="dist/imagens/jogo-de-casino.png" data-lightbox="casino-app">
+            <img src="dist/imagens/jogo-de-casino.png" class="card-img-top" alt="Jogo de Casino">
+          </a>
+          <a href="https://github.com/marshfellow42/Jogo-de-Casino" class="nounderline">
+            <div class="card-body">
+              <h5 class="card-title">Jogo de Casino</h5>
+              <p class="card-text">Meu primeiro projeto "sério" em um jogo feito em Python, baseado em texto com vários finais engraçados e levemente controvérsios.</p>
+            </div>
+          </a>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="p-3 mt-4 bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-center">
+          <a href="#home" class="btn btn-primary">Início</a>
+
+          &nbsp;&nbsp;&nbsp;
+
+          <a href="https://github.com/marshfellow42">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" class="github-icon btn btn-outline-secondary" alt="GitHub Icon">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/lightbox-plus-jquery.min.js"></script>
+<script src="dist/js/feather.min.js"></script>
+<script>
+  feather.replace();
+</script>
