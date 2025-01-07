@@ -22,12 +22,10 @@ app.get('/v2/*', function(req, res) {
 */
 
 app.get('/v3/:name', function(req, res) {
-    localStorage.setItem("nome_do_user", req.params.name)
     res.send('hello V3 ' + req.params.name)
 })
 
 app.get('/v3/:name/json', function(req, res) {
-    localStorage.setItem("nome_do_user", req.params.name)
     res.json({
         msg: 'hello V3 ' + req.params.name
     })
