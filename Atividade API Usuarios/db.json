@@ -1,0 +1,35 @@
+{
+    "db": [
+      {
+        "id": 1,
+        "firstName": "João",
+        "lastName": "Silva",
+        "email": "joao.silva@email.com"
+      },
+      {
+        "id": 2,
+        "firstName": "Maria",
+        "lastName": "Oliveira",
+        "email": "maria.oliveira@email.com"
+      },
+      {
+        "id": 3,
+        "firstName": "Carlos",
+        "lastName": "Costa",
+        "email": "carlos.costa@email.com"
+      },
+      {
+        "id": 4,
+        "firstName": "Ana",
+        "lastName": "Pereira",
+        "email": "ana.pereira@email.com"
+      },
+      {
+        "id": 5,
+        "firstName": "Ricardo",
+        "lastName": "Mendes",
+        "email": "ricardo.mendes@email.com"
+      }
+    ]
+  }
+  
