@@ -6,7 +6,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
 app.listen(PORT, () => {
-    console.log(`API Livraria API escutando na porta ${PORT}`)
+    console.log(`API Livraria escutando na porta ${PORT}`)
 })
 
 app.get('/livros', (req, res) => {
